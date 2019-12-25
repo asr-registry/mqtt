@@ -12,4 +12,9 @@ We are using Eclipse Paho Project. The Eclipse Paho project provides open-source
 
 #### Features
 
-- 
+- Publish Api Endpoint
+- Subscribe Api Endpoint 
+- Connection Management 
+- Exception Handing 
+- Data Models
+- and More
