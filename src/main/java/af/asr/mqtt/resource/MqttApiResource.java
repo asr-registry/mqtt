@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping(value = "/api/mqtt")
 public class MqttApiResource {
 
-    @PostMapping("publish")
+    @PostMapping("/publish")
     public void publishMessage(@RequestBody @Valid MqttPublishModel messagePublishModel,
                                BindingResult bindingResult) throws org.eclipse.paho.client.mqttv3.MqttException, MqttException {
         if (bindingResult.hasErrors()) {
@@ -34,7 +34,7 @@ public class MqttApiResource {
         Mqtt.getInstance().publish(messagePublishModel.getTopic(), mqttMessage);
     }
 
-    @GetMapping("subscribe")
+    @GetMapping("/subscribe")
     public List<MqttSubscribeModel> subscribeChannel(@RequestParam(value = "topic") String topic,
                                                      @RequestParam(value = "wait_millis") Integer waitMillis)
             throws InterruptedException, org.eclipse.paho.client.mqttv3.MqttException {
