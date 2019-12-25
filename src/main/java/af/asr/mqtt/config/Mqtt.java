@@ -1,5 +1,6 @@
 package af.asr.mqtt.config;
 
+import af.asr.mqtt.util.MqttServerConstants;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
@@ -10,14 +11,12 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Mqtt {
 
-    private static final String MQTT_PUBLISHER_ID = "spring-server";
-    private static final String MQTT_SERVER_ADDRES= "tcp://127.0.0.1:1883";
     private static IMqttClient instance;
 
     public static IMqttClient getInstance() {
         try {
             if (instance == null) {
-                instance = new MqttClient(MQTT_SERVER_ADDRES, MQTT_PUBLISHER_ID);
+                instance = new MqttClient(MqttServerConstants.MQTT_PUBLISHER_ID, MqttServerConstants.MQTT_SERVER_ADDRESS);
             }
 
             MqttConnectOptions options = new MqttConnectOptions();
